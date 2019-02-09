@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}ListaJugadores{% endblock %}
+
+{% block content %}
+<h1>Lista de jugadores</h1>
+
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+						<h2><b>Jugadores</b></h2>
+					</div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Numero</th>
+						<th>Equipo</th>
+                        <th>Posicion</th>
+                        <th>Detalle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for jugador in jugadoresPosicion  %}
+                    <tr>
+                        <td>{{jugador.nombreJugador}}</td>
+                        <td>{{jugador.numeroJugador}}</td>
+						<td>{{jugador.equipo}}</td>
+                        <td>{{jugador.posicion}}</td>
+                        <td>
+							<a href="{%url 'detalle_jugador_view' jugador.id%}"><i class="material-icons" data-toggle="tooltip" title="Detalles">details</i></a>
+                        </td>
+                    </tr>	
+                    {% endfor %}				
+                </tbody>
+            </table>
+        </div>
+    </div>
+                    		                            
+{% endblock %}
